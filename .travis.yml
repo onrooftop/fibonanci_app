@@ -18,3 +18,16 @@ after_success:
   - docker push thaiblockdocker/fibo-nginx
   - docker push thaiblockdocker/fibo-server
   - docker push thaiblockdocker/fibo-worker
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: fibo-docker
+  env: FiboDocker
+  bucket_name: elasticbeanstalk-us-east-2-593542660255
+  bucket_path: docker-fibo
+  on: 
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
