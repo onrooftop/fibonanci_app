@@ -13,7 +13,7 @@ after_success:
   - docker build -t thaiblockdocker/fibo-nginx ./nginx
   - docker build -t thaiblockdocker/fibo-server ./server
   - docker build -t thaiblockdocker/fibo-worker ./worker
-  - echo "$DOCKER_PASS" | docker login -u "$DOCKER_ID" --pasword-stdin
+  - echo "$DOCKER_PASS" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push thaiblockdocker/fibo-client
   - docker push thaiblockdocker/fibo-nginx
   - docker push thaiblockdocker/fibo-server
